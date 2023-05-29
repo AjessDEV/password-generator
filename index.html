@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4f12ee4706.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Grab - Password Generator</title>
+    <link rel="shortcut icon" href="./resources/grab-icon.png">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">Grab.</a>
+
+            <ul class="nav-menu">
+                <li class="nav-menu-item"><a href="#" class="nav-link">Github Repository</a></li>
+                <li class="nav-menu-item"><a href="https://github.com/AjessDEV" class="nav-link nav-link_active">Developer</a></li>
+            </ul>
+
+            <button class="bars" id="bars"><i class="fa-sharp fa-solid fa-bars"></i></button>
+        </nav>
+    </header>
+    
+    <div class="container">
+
+
+        <div class="app-container">
+            <div class="password">
+                <div class="generated-pass" id="generated-pass"><p class="empty-text">P4sSw0Rd_H3rE</p></div>
+                <h5 class="copy-icon" id="copy-button"><i class="fa-sharp fa-regular fa-copy"></i></h5>
+            </div>
+            <br><br>
+
+            <label class="length-label">Length</label>
+            <div class="range-container">
+            <span>8</span>
+            <input type="range" min="8" max="15" step="1" id="length" class="length-input">
+            <span>15</span>
+            </div>
+
+            <br>
+            <input type="checkbox" id="numbers-option" class="numbers-cb">
+<br>
+            <input type="checkbox" id="symbols-option" class="symbols-cb">
+<br><br>
+            <button class="generate-button" id="generateBtn">Generate Password</button>
+        </div>
+    </div>
+
+<script src="app.js"></script>
+</body>
+</html>

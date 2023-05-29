@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Martian Mono', monospace;
+    --color-one: #002833;
+    --color-two: #00fff0;
+}
+
+body {
+    background: url(./resources/app-background.svg)no-repeat;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(360deg, rgba(0,0,0,0), rgba(0,0,0,0.3));
+    position: fixed;
+    z-index: 100000;
+}
+.nav {
+    max-width: 992px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    line-height: 80px;
+}
+.nav-link {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    background-color: var(--color-two);
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 0;
+    height: 3px;
+    opacity: 0;
+    transition: ease 250ms;
+}
+.nav-link:hover::after, .nav-link_active::after {
+    width: 100%;
+    opacity: 1;
+}
+
+.logo {
+    line-height: 80px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-shadow: -8px 6px 0 rgba(0,0,0,0.3);
+}
+
+.bars {
+    background: none;
+    border: none;
+    font-size: 35px;
+    color: #fff;
+    display: none;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    background-color: var(--color-one);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    box-shadow: 10px 10px 0 #00000068, -6px -6px 0 #00000022;
+    padding: 14px;
+}
+
+.password {
+    width: 350px;
+    height: 50px;
+    background-color: #001a21;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.generated-pass {
+    color: var(--color-two);
+}
+
+.empty-text {
+    color: #ffffff54;
+    pointer-events: none;
+}
+.copy-icon {
+    font-size: 23px;
+    color: #ffffff54;
+    cursor: pointer;
+    pointer-events: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: ease 200ms;
+}
+.copy-icon_active {
+    color: #fff;
+    pointer-events: all;
+}
+.copy-icon_active:hover {
+    color: var(--color-two);
+}
+.copy-icon_active:after {
+    content: 'Copy';
+    color: #ffffff7f;
+    font-size: 15px;
+    font-weight: 200;
+    background-color: #001a21;
+    position: absolute;
+    left: 180%;
+    opacity: 0;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    transition: ease 200ms;
+}
+.copy-icon_active:hover::after {
+    opacity: 1;
+    left: 140%;
+}
+
+.copy-icon_active2:before {
+    content: 'Copied!';
+    color: #ffffff7f;
+    font-size: 15px;
+    font-weight: 200;
+    background-color: #001a21;
+    position: absolute;
+    left: 140%;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    animation-name: textCopied;
+    animation-duration: 1s;
+}
+
+@keyframes textCopied {
+    from {
+        visibility: visible;
+    }
+
+    to {
+        visibility: hidden;
+    }
+}
+
+.numbers-cb {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* opacity: 0; */
+    position: relative;
+    appearance: none;
+}
+
+.numbers-cb::after {
+    content: 'Numbers';
+    margin-left: 50px;
+    color: var(--color-two);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.numbers-cb::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: solid 3px var(--color-two);
+    position: absolute;
+    transition: ease 120ms;
+}
+
+.numbers-cb:checked::before {
+    background-color: var(--color-two);
+}
+.numbers-cb:checked::after {
+    text-decoration: line-through;
+}
+
+
+.symbols-cb {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* opacity: 0; */
+    position: relative;
+    appearance: none;
+}
+
+.symbols-cb::after {
+    content: 'Symbols';
+    margin-left: 50px;
+    color: var(--color-two);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.symbols-cb::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: solid 3px var(--color-two);
+    position: absolute;
+    transition: ease 120ms;
+}
+
+.symbols-cb:checked::before {
+    background-color: var(--color-two);
+}
+.symbols-cb:checked::after {
+    text-decoration: line-through;
+}
+
+.generate-button {
+    width: 100%;
+    padding: 12px 0;
+    color: var(--color-one);
+    background-color: var(--color-two);
+    border: none;
+    box-shadow: 0 0 20px #00ffee71;
+    font-size: 18px;
+    font-weight: 500;
+    transition: ease 200ms;
+    cursor: pointer;
+    outline: none;
+}
+.generate-button:hover {
+    box-shadow: 0 0 20px #00ffeed5;
+}
+.generate-button:active {
+    transform: scale(0.9);
+}
+
+.length-input {
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    background-color: #ffffff54;
+    height: 5px;
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+}
+.length-input::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: var(--color-two);
+    border-radius: 50%;
+}
+
+.range-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.range-container > span {
+    font-size: 25px;
+    color: var(--color-two);
+}
+
+.length-label {
+    color: var(--color-two);
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.password-done {
+    color: var(--color-two);
+}
+
+/* Responsive Design */
+
+@media (max-width: 720px) {
+
+    .nav {
+        max-width: 250px;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-one);
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        transition: ease 300ms;
+        gap: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .nav-menu_active {
+        top: 80px;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .nav-menu-item {
+        overflow: hidden;
+    }
+    .bars {
+        display: block;
+        cursor: pointer;
+    }
+
+    .password {
+        width: 200px;
+        height: 30px;
+    }
+
+    .copy-icon_active::after {
+        display: none;
+    }
+
+    .copy-icon_active2::before {
+        left: -100%;
+        top: 180%;
+    }
+}
