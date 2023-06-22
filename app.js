@@ -56,8 +56,4 @@ const navMenu = document.querySelector('.nav-menu')
 
 barsBtn.addEventListener('click', () => {
     navMenu.classList.toggle('nav-menu_active')
-
-    if(document.addEventListener('click')) {
-        navMenu.classList.remove('nav-menu_active')
-    }
 })
